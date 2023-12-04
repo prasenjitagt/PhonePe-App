@@ -3,6 +3,7 @@ import wixSecretsBackend from 'wix-secrets-backend';
 
 //Website domain name
 const domainName = 'https://www.artxgen.com/';
+const urlForPostRequest = 'https://www.artxgen.com/_functions/callback';
 
 /********* Axios Setup *********/
 
@@ -39,7 +40,7 @@ export async function checkout() {
         "amount": parseInt(cart.subtotal.convertedAmount) * 100, //amout in paise
         "redirectUrl": domainName,
         "redirectMode": "REDIRECT",
-        "callbackUrl": domainName,
+        "callbackUrl": urlForPostRequest,
         "paymentInstrument": {
             "type": "PAY_PAGE"
         }
