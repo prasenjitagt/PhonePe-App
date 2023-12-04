@@ -16,16 +16,11 @@ $w.onReady(async function () {
      /******** Creating Transaction ID *******/
 	if (wixLocationFrontend.path[0] === 'thank-you-page') {
 
-        //Getting the payment link from order.jsw
-        const uri = retUrl();
-        
-        //Since uri is a promise, so resolving promise to get the link
-        uri.then(link => {
+          //Getting the payment link from order.jsw
+          const uri = await retUrl();
 
-        //redirecting to that link            
-        wixLocationFrontend.to(link);
-            
-        })
+          //redirecting to that link            
+          wixLocationFrontend.to(uri);        
     }
 
 
